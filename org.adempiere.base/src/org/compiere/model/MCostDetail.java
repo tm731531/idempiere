@@ -141,7 +141,7 @@ public class MCostDetail extends X_M_CostDetail
 				cd.setAmt(Amt);
 				cd.setQty(Qty);
 			}
-			if (cd.isDelta())
+			if (cd.isDelta()&& Amt.compareTo( new BigDecimal(0))>=0)
 			{
 				cd.setProcessed(false);
 				cd.setAmt(Amt);
@@ -1475,6 +1475,8 @@ public class MCostDetail extends X_M_CostDetail
 			{
 				qty = BigDecimal.ZERO;
 				costAdjustment = true;
+				
+                amt=getAmt();
 			}
 		}
 		
